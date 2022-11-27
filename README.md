@@ -6,14 +6,3 @@ As explicações estão todas no próprio código, através de comentários, inc
 A montagem do projeto foi baseado na numeração dos botões dos controles USB genéricos de SNES e PS2, testados a partir do site: https://gamepad-tester.com/
 
 Funcionando em Raspberry Pi usando Lakka e Retropie (configurar segundo os botões do SNES e segundo esquema no código), assim como no MAME e FBAlpha e FBNEO para PC.
-
-
- _______________________________
-|                               |
-|   C                O      O   |
-|   |                Se     St  |
-|E --- D      O      O      O   |
-|   |         Y      X      L   |
-|   B         O      O      O   |
-|             B      A      R   |
-|_______________________________|
