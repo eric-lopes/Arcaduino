@@ -1,5 +1,4 @@
-//Biblioteca presente na pasta Bibliotecas. Adcionar ao ambiente Arduino utilizando seu método favorito!    
-#include "Joystick.h"
+    #include "Joystick.h"
 
 /* Joystick Arcade de 8 botões e um direcional, baseado no padrão de botões do Super Nintendo. Funciona em todos os jogos MAME e FBA/FBNeo.
    Código apresenta, também, as cores dos fios usados para a conexão entre os switchs e o arduino.
@@ -16,6 +15,25 @@
 |_______________________________|
 
 */
+
+/*
+// Relação entre os pinos analógicos e digitais do Arduino Leonardo
+// Usar se o digitalRead(A0) não funcionar
+// Jamais descomentar esse trecho, apenas use o número do pino digital correspondente ao Analógico.
+
+static const uint8_t A0 = 18;
+static const uint8_t A1 = 19;
+static const uint8_t A2 = 20;
+static const uint8_t A3 = 21;
+static const uint8_t A4 = 22;
+static const uint8_t A5 = 23;
+static const uint8_t A6 = 24; // D4
+static const uint8_t A7 = 25; // D6
+static const uint8_t A8 = 26; // D8
+static const uint8_t A9 = 27; // D9
+static const uint8_t A10 = 28; // D10
+static const uint8_t A11 = 29; // D12
+ */
 
 
 //Criando um Joystick Personalizado
@@ -61,6 +79,8 @@ void setup() {
   pinMode(BY,INPUT_PULLUP);
   pinMode(BA,INPUT_PULLUP);
   pinMode(BB,INPUT_PULLUP);
+  //Lakka mapeou o botão select como botão de configuração do Mame. Tive de criar outro botão para poder mapear para essa função.
+  pinMode(A0,INPUT_PULLUP);
   
   Joystick.begin(false);                //Inicia Desligado
   Joystick.setXAxisRange(-100, 100);    //Limites do Eixo X
@@ -129,6 +149,11 @@ void loop() {
     Joystick.setButton(9, 1);
   }else{
     Joystick.setButton(9, 0);  
+  }
+  if(digitalRead(A0)==LOW){
+    Joystick.setButton(15, 1);
+  }else{
+    Joystick.setButton(15, 0);  
   }
   
   //Envia o status por USB
