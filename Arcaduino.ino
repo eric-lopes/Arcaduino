@@ -1,4 +1,4 @@
-    #include "Joystick.h"
+#include "Joystick.h"
 
 /* Joystick Arcade de 8 botões e um direcional, baseado no padrão de botões do Super Nintendo. Funciona em todos os jogos MAME e FBA/FBNeo.
    Código apresenta, também, as cores dos fios usados para a conexão entre os switchs e o arduino.
@@ -150,10 +150,11 @@ void loop() {
   }else{
     Joystick.setButton(9, 0);  
   }
+  
   if(digitalRead(A0)==LOW){
-    Joystick.setButton(15, 1);
+    Joystick.setButton(7, 1);
   }else{
-    Joystick.setButton(15, 0);  
+    Joystick.setButton(7, 0);  
   }
   
   //Envia o status por USB
